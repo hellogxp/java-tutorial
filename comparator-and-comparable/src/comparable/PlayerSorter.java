@@ -20,11 +20,10 @@ public class PlayerSorter {
         playerList.add(player2);
         playerList.add(player3);
 
-        //System.out.println("Before Sorting : " + playerList);
-        playerList.forEach(player -> System.out.printf("%-8s", player.getName() + " : " + player.getAge() + "\n"));
+        playerList.forEach(player -> System.out.printf("%s", player.getName() + " : " + player.getAge() + "\n"));
         Collections.sort(playerList);
         //System.out.println("After Sorting : " + playerList);
         System.out.println("After Sorting");
-        playerList.forEach(player -> System.out.printf("%-8s", player.getName() + " : " + player.getAge() + "\n"));
+        playerList.forEach(player -> System.out.printf("%s", player.getName() + " : " + player.getAge() + "\n"));
     }
 }
