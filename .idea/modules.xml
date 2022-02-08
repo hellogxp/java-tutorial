@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/comparator-and-comparable/comparator-and-comparable.iml" filepath="$PROJECT_DIR$/comparator-and-comparable/comparator-and-comparable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/threadpool/threadpool.iml" filepath="$PROJECT_DIR$/threadpool/threadpool.iml" />
     </modules>
   </component>
 </project>
