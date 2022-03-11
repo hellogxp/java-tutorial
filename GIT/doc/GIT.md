@@ -150,3 +150,10 @@ If your branch was made off of origin/master, then say origin/master instead of 
 git push -f origin remotebranch
 ```
 
+### Remove files or folders from git trace    
+```shell
+git rm --cached <file>
+```    
+```shell
+git rm -r --cached <folder>
+```
