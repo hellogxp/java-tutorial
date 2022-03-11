@@ -11,6 +11,10 @@
     <modules>
         <module>concurrent</module>
         <module>optional</module>
+        <module>java-rabbitmq/publisher-confirms</module>
+        <module>Class</module>
+        <module>JVM</module>
+        <module>GIT</module>
     </modules>
 
     <properties>
