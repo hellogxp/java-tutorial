@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author Chopin
  * @date 2022/4/2
  */
-public class CachedThreadPool {
+public class CachedThreadPoolDemo {
     public static AtomicInteger atomicInteger = new AtomicInteger(0);
 
     public static void main(String[] args) {
