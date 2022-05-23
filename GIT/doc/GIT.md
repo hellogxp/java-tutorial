@@ -101,6 +101,8 @@ cat .git/config
 
 ### Fetch remote brancds that not exis locally and set up to track remote branhcn
 
+#### Solution one    
+
 1. Fetch all of remote brands for you
 
 ```git
@@ -121,6 +123,49 @@ git switch origin/remote_branch
 
 In this case Git is guessing (can be disabled with --no-guess) that you are trying to checkout and track the remote
 branch with the same name.
+
+#### Solution two
+
+1. We first look at local branches in our repository:
+    ```
+    $ git branch
+    * master
+    ```
+But there are other branches hiding in our reposotory! We can see these using `-a` flag    
+```
+$ git branch -a
+* master
+  remotes/origin/HEAD
+  remotes/origin/master
+  remotes/origin/v1.0-stable
+  remotes/origin/experimental
+```
+
+If we just wanto take a quick peek at an upstream branch, we can check it directly:    
+```
+$ git checkout origin/experimental
+```
+But if you want to work on that branch, you'll need to create a local tracking branch which is done automatically by:
+```
+$ git checkout experimental
+
+```
+and you will see:    
+```
+Branch experimental set up to track remote branch experimental from origin.
+Switched to a new branch 'experimental'
+```
+
+Here, "new branch" simply means that the branch is taken from the index and created locally for you. As the previous 
+line tells you, the branch is being set up to track the remote branch, which usually means the origin/branch_name branch.
+
+Now, if you look at uyour local branches, you will see below:
+
+```
+$ git branch
+* experimental
+  master
+```
 
 ### Based on the remote branch to build a local branch, and then set up to track remote branch
 
