@@ -185,10 +185,15 @@ git log master..branchname
 
 If your branch was made off of origin/master, then say origin/master instead of master.
 
-### Back to previous commit and push to remote
-
+### Back to a previous commit and push to remote
+Back to last commit
 ```shell
  git reset --hard HEAD^
+```
+or a certain commit id
+
+```
+ git reset --hard commitid
 ```
 
 ```
