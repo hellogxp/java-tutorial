@@ -93,3 +93,43 @@ starts by adding a `command` to the docker configuration file.
       command: [ 'chown' ]  
       args: [ '1000:1000', '/usr/share/elasticsearch/data' ]
     ```
+
+### Mount file does not take effect    
+Sometimes mount files do not take effect suddenly, for instance, you mount a php config file, `- "./php/php.ini:/usr/local/etc/php/php.ini"`
+```shell
+ php:
+     build: ./php  #指定build Dockerfile生成镜像
+     image: php:5.6-fpm
+     ports:
+         - "9000:9000"
+     volumes:
+         - "$PWD/dataweb:/var/www/html"
+         - "./php/php.ini:/usr/local/etc/php/php.ini"
+     networks:
+         - app_net
+     container_name: "compose-php"
+```
+and then you comment this line, maybe you want to so some test or other things
+```shell
+ php:
+     build: ./php  #指定build Dockerfile生成镜像
+     image: php:5.6-fpm
+     ports:
+         - "9000:9000"
+     volumes:
+         - "$PWD/dataweb:/var/www/html"
+         #- "./php/php.ini:/usr/local/etc/php/php.ini"
+     networks:
+         - app_net
+     container_name: "compose-php"
+```
+after finishing your tests, you remove the `#` before this line, but if you modify some values in `php.ini` in host, the 
+counterpart in container would not be changed accordingly.
+
+* Reason:    
+because the container that was started originally generated 
+a default volume on the host, and the original volume was not deleted when it was re-up, resulting in the newly hung one 
+not taking effect.
+
+* Solution:    
+Stop the docker container first and then delete it. Recreating a container will be fine.
