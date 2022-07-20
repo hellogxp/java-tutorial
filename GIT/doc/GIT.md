@@ -207,3 +207,21 @@ git rm --cached <file>
 ```shell
 git rm -r --cached <folder>
 ```
+
+#### Accidentally deleted the original name branch    
+Sometimes we delete remote branch accidently, we would get response messsage as follow if we type command `git status`    
+```git
+Your branch is based on 'origin/local_branch', but the upstream is gone.
+(use "git branch --unset-upstream" to fixup)
+```    
+We can re-establish the association with the remote branch with the following command
+```git
+git branch --unset-upstream 
+```    
+
+```git
+git push --set-upstream origin feature/local-branch
+```   
+What the above command does is:    
+1. First push the local current branch to the `local-branch` branch of the remote warehouse `origin`    
+2. Then associate the local current branch with the `local-branch` branch of the remote warehouse `origin`
